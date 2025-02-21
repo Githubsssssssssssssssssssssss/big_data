@@ -1,0 +1,222 @@
+% Document class and general format
+\documentclass[a4paper,12pt]{report} % Sets the document type to 'report', using A4 paper size and 12pt font size
+
+%____________________________ Pour la bibliography__________________________
+% Ajouter ces 4 lignes sur la pages ou on veut voir les reférences
+%\nocite{*}
+%\renewcommand{\bibname}{} pour ne pas afficher references
+%\renewcommand{\refname}{}pour ne pas afficher references
+%\printbibliography 
+
+\usepackage[backend=biber,style=numeric-comp]{biblatex}
+\addbibresource{document.bib}
+\usepackage{hyperref}
+% Configuration of hyperref
+\hypersetup{hidelinks}
+
+% URL font configuration
+\renewcommand{\UrlFont}{\rmfamily}
+
+% Make authors bold in bibliography
+\DeclareNameFormat{author}{%
+	\textbf{%
+		\nameparts{#1}%
+		\usebibmacro{name:family-given}
+		{\namepartfamily}
+		{\namepartgiveni}
+		{\namepartprefix}
+		{\namepartsuffix}%
+	}%
+	\usebibmacro{name:andothers}%
+}
+\setlength{\bibitemsep}{0.5\baselineskip}
+
+%____________________________ Pour la bibliography_end__________________________
+
+% For creating graphics and diagrams
+\usepackage{tikz} 
+
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\chapter*{\bibname}}{}{}{}
+
+
+% Allows the use of system fonts (for XeLaTeX or LuaLaTeX)
+\usepackage{fontspec} 
+
+% For creating outlined text
+\usepackage{contour}
+
+% Provides Chinese-style ornamental designs
+\usepackage{pgfornament-han} 
+
+% For creating colored and framed text boxes
+\usepackage{tcolorbox} 
+
+% Line spacing and paragraph indentation
+\usepackage{setspace} 
+\doublespacing % Sets double line spacing for the entire document
+\setlength{\parindent}{1cm} % Sets paragraph indentation to 1 cm
+\setstretch{1.5} % Sets line spacing to 1.5 times the normal spacing
+
+% For using and defining colors in the document
+\usepackage{xcolor} 
+
+% Customizes captions for figures and tables
+\usepackage{caption} 
+\captionsetup[figure]{name = Figure} % Sets the caption label for figures to "Figure"
+
+% For adding shadow effects to text
+\usepackage{shadowtext} 
+
+% Text alignment and justification
+\usepackage{ragged2e} 
+\justifying % Justifies text throughout the document
+\hyphenpenalty = 10000000 % Disables hyphenation by setting a high penalty
+\exhyphenpenalty = 10000000 % Disables ex-hyphenation with a high penalty
+\emergencystretch = 4em % Allows extra space to avoid overfull lines
+
+
+% Customizes the table of contents, list of figures, and list of tables
+\usepackage{tocloft} 
+
+% Sets page margins
+\usepackage[margin=2.5cm]{geometry} 
+
+% Provides support for sub-captions in figures and tables
+\usepackage{subcaption} 
+
+% For creating custom headers and footers
+\usepackage{fancyhdr} 
+\usepackage{float}
+
+%\usepackage{needspace}
+
+% Figure and Table list customization
+\renewcommand{\listfigurename}{} % Removes the title from the list of figures
+\renewcommand{\figurename}{Graphique } % Sets the figure name to "Graphique"
+\captionsetup[figure]{name=Graphique} % Updates figure captions to use "Graphique"
+%\captionsetup{justification=RaggedRight, singlelinecheck=false} % (Commented out) Aligns captions to the left
+\renewcommand{\cftfigpresnum}{\figurename} % Customizes the list of figures with figure names
+\renewcommand{\cftfigaftersnum}{ :\quad} % Sets the format of the figure numbers in the list
+\setlength{\cftfignumwidth}{7em} % Adjusts the width of figure numbers in the list
+
+\renewcommand{\listtablename}{} % Removes the title from the list of tables
+\renewcommand{\tablename}{Tableau } % Sets the table name to "Tableau"
+\renewcommand{\cfttabpresnum}{\tablename} % Customizes the list of tables with table names
+\renewcommand{\cfttabaftersnum}{ :\quad} % Sets the format of the table numbers in the list
+\setlength{\cfttabnumwidth}{5em} % Adjusts the width of table numbers in the list
+
+\renewcommand{\contentsname}{} % Removes the title from the table of contents
+
+% Page numbering settings
+\pagenumbering{arabic} % Sets the page numbering to Arabic numerals
+
+% Header and footer customization
+\renewcommand{\headrulewidth}{0pt} % Removes the line in the header
+% Define a custom command for the header with title parameter
+\newcommand{\customheader}[1]
+{   
+	\noindent\begin{tikzpicture}
+		\draw[line width=5.8pt] (0,0) -- (16,0); % Thick top line
+		\draw[line width=0.5pt] (0.5,-0.2) -- (15.5,-0.2); % Thin line below the thick line
+	\end{tikzpicture}
+	\vspace{-30px}
+	\begin{center}
+		\setmainfont{Garamond}
+		\setstretch{2}
+		\fontseries{b}\fontsize{20}{13}\selectfont
+		\textbf{\hspace{0.5cm}#1} % Use the provided title
+	\end{center}
+	\noindent\begin{tikzpicture}
+		\node at (0,0) {\pgfornament[color=black, width=1cm]{2}};
+		\draw[line width=4.4pt] (0.6,0) -- (14.6,0); % Thick bottom line
+		\draw[line width=0.5pt] (0.6,0.2) -- (14.6,0.2); % Thin line above the thick line
+		\node at (15.2,0) {\pgfornament[color=black, width=1cm, symmetry=v]{2}};
+	\end{tikzpicture}
+	\begin{tikzpicture}[remember picture, overlay]
+		\node at (6.7,0.6) {\pgfornament[color=black, width=0.8cm]{43}};
+		\node at (9.5,0.6) {\pgfornament[color=black, width=0.8cm, symmetry=v]{43}};
+		\node at (8.1,0.4) {\pgfornament[color=black, width=2cm, symmetry=v]{49}};
+	\end{tikzpicture}
+	\vspace{1em} % Add some space after the chapter title
+}
+
+\newcommand{\chaptitle}
+{
+	\begin{flushleft}
+		\setmainfont{chiller}
+		\hspace{1cm}
+		\textit{\textbf{\fontsize{13}{0}\selectfont CHAPITRE : }}
+	\end{flushleft}
+	\vspace{-18px} 
+}
+
+% Define the custom chapter commands
+\newcounter{ochapter}
+\setcounter{ochapter}{0}
+
+% Command to create a custom numbered chapter with space between number and title
+\newcommand{\ochapter}[1]{%
+	\phantomsection%
+	\refstepcounter{ochapter}% Increment the ochapter counter
+	\setcounter{section}{0}% Reset the section counter
+	\renewcommand{\thesection}{\theochapter.\arabic{section}}% Set section numbering within chapter
+	\addcontentsline{toc}{chapter}{\theochapter\hspace{0.5cm}#1}% Add to the table of contents with space
+	\customheader{\noindent\theochapter.\hspace{0.5cm}#1}% Print the chapter number with space, then the title
+	\label{chap:#1}% Set a label for referencing
+}
+
+% Command to create a chapter without a number
+\newcommand{\nochapter}[1]{%
+	\phantomsection%
+	\addcontentsline{toc}{chapter}{#1}% Add to the table of contents
+	\customheader{\noindent #1}% Print the chapter number with space, then the title
+	\label{chap:#1}% Set a label for referencing
+}
+
+\fancypagestyle{plain}
+{
+	%\fancyhf{}
+	%\fancyhf[C]{ \fontsize{7}{13}\selectfont\textbf{}}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\hrulefill}{\leavevmode\leaders\hrule height 4pt\hfill\kern 0pt}
+	
+	\fancyfoot[L]{\footnotesize\textbf{GROUPE 5, ISE2, FEVRIER 2024}}
+	\fancyfoot[R]{{\footnotesize \textbf{\thepage}}}
+	\fancyfoot[C]{}
+	\renewcommand{\footrulewidth}{2pt}
+	\renewcommand{\hrulefill}{\leavevmode\leaders\hrule height 4pt\hfill\kern0pt}
+	
+}
+
+\pagestyle{plain}
+
+%________________________________________
+
+% Encodage et langue
+\usepackage[utf8]{inputenc} % Pour garantir que les caractères spéciaux comme les apostrophes s'affichent
+
+% Mathématiques
+\usepackage{amsmath}    % Environnement mathématique
+\usepackage{amssymb}    % Symboles mathématiques supplémentaires
+\usepackage{mathtools}        % Pour les symboles mathématiques
+\usepackage{graphicx}        % Pour l'insertion d'images
+\usepackage[table,xcdraw]{xcolor}  % Pour la gestion des couleurs dans les tableaux
+\usepackage{setspace}        % Pour ajuster l'espacement des lignes
+\usepackage{array}           % Pour des options avancées de tableaux
+\usepackage{caption}  
+\usepackage[table,xcdraw]{xcolor}
+
+% Numérotation des équations par section
+\numberwithin{equation}{section}
+%________________________________________________
+
+
+\begin{document}
+	\include{Accueil/accueil}
+	\include{Sommaire_liste_tableaux_graphiques/sommaire_liste_tableaux_graphiques}
+	%\include{Liste_tableaux_graphiques/liste_tableaux_graphiques}
+	%\include{Resume/resume}
+	\include{Chapitre/chapitre1}
+	
+\end{document}

@@ -1,0 +1,27 @@
+\contentsline {chapter}{LISTE DES TABLEAUX}{ii}{section*.1}%
+\contentsline {chapter}{LISTE DES FIGURES}{ii}{section*.2}%
+\contentsline {chapter}{INTRODUCTION GENERALE}{1}{section*.3}%
+\contentsline {chapter}{1\hspace {0.5cm}PRESENTATION DES DONNEES ET ANALYSES EXPLORATOIRES}{4}{ochapter.1}%
+\contentsline {section}{\numberline {1.1}Présentation des données}{4}{section.0.1}%
+\contentsline {subsection}{\numberline {1.1.1}Source et nature des données}{4}{subsection.0.1.1}%
+\contentsline {subsubsection}{Informations clés des données}{4}{section*.10}%
+\contentsline {subsubsection}{Structure d'une requête reussie (réponse)}{5}{section*.11}%
+\contentsline {section}{\numberline {1.2}Analyses exploratoires}{5}{section.0.2}%
+\contentsline {chapter}{2\hspace {0.5cm}ANALYSES DE LA PERFORMANCE DU RESEAU AVEC PYSPARK}{6}{ochapter.2}%
+\contentsline {section}{\numberline {2.1}Indicateurs de tendance centrale }{6}{section.0.1}%
+\contentsline {section}{\numberline {2.2}Indicateurs de dispersion }{7}{section.0.2}%
+\contentsline {section}{\numberline {2.3} Fréquences d'apparition des ttl}{7}{section.0.3}%
+\contentsline {section}{\numberline {2.4}Taux de perte de paquets}{8}{section.0.4}%
+\contentsline {section}{\numberline {2.5}Moyenne par groupe de secondes}{9}{section.0.5}%
+\contentsline {subsection}{\numberline {2.5.1}Par groupe de 10 secondes}{9}{subsection.0.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Par groupe de 100 secondes}{9}{subsection.0.5.2}%
+\contentsline {section}{\numberline {2.6} le nombre de requetes où la latence est anormalement élevée}{10}{section.0.6}%
+\contentsline {section}{\numberline {2.7} le nombre de requetes où la latence est anormalement faible, relativement à l'ensemble}{10}{section.0.7}%
+\contentsline {section}{\numberline {2.8}Anomalies où le temps de latence dépasse un certain seuil}{11}{section.0.8}%
+\contentsline {section}{\numberline {2.9}Repartition des TTL en fonction des seuil de latence anormales}{11}{section.0.9}%
+\contentsline {section}{\numberline {2.10}Variation moyenne du délai de transmission des paquets ou gigue}{12}{section.0.10}%
+\contentsline {chapter}{3\hspace {0.5cm}INTERPRETATION ET DISCUSSION DES RESULTATS}{13}{ochapter.3}%
+\contentsline {section}{\numberline {3.1}Statistiques générales sur l'émission et la réception des requêtes}{13}{section.0.1}%
+\contentsline {section}{\numberline {3.2}Analyse des TTL et de la stabilité du routage}{14}{section.0.2}%
+\contentsline {section}{\numberline {3.3}Analyse des temps de latence}{14}{section.0.3}%
+\contentsline {chapter}{CONCLUSION }{\MakeUppercase []{v}}{section*.22}%
